@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English PBL</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Varela+Round&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="blur-overlay" id="overlay"></div>
+
+  <header>
+    <h1 class="title">English PBL Groups</h1>
+  </header>
+
+  <nav>
+    <div class="nav-button">
+      <h2><a href="index.html" target="_self">Home</a></h2>
+    </div>
+    <div class="nav-button">
+      <h2><a href="about.html" target="_self">About</a></h2>
+    </div>
+    <div class="nav-button">
+      <h2><a href="credits.html" target="_self">Credits</a></h2>
+    </div>
+  </nav>
+
+<main class="content"></main>
+    <div class="credits-container">
+        <!-- Developers Section -->
+        <div class="credits-box glassy">
+            <h2>Developers</h2>
+            <ul>
+                <li>Alice</li>
+                <li>Bob</li>
+                <li>Charlie</li>
+            </ul>
+        </div>
+
+        <!-- Editors Section -->
+        <div class="credits-box glassy">
+            <h2>Editors</h2>
+            <ul>
+                <li>David</li>
+                <li>Eve</li>
+                <li>Frank</li>
+            </ul>
+        </div>
+
+        <!-- Faculty Section -->
+        <div class="credits-box glassy">
+            <h2>Faculty</h2>
+            <ul>
+                <li>Prof. Grace</li>
+                <li>Dr. Heidi</li>
+                <li>Mr. Liam</li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+  <footer>
+    <p>&copy; X-1 English PBL 2025.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeContent()">&times;</span>
+      <h2 id="modal-title">Group Details</h2>
+      <div id="modal-text">
+        <!-- Group details (logo, members, etc.) will be injected here -->
+      </div>
+
+      <!-- Tabs for PDF, PPT, and YouTube -->
+      <div class="tabs">
+        <button class="tab-button" onclick="openTab('pdfTab')">PDF</button>
+        <button class="tab-button" onclick="openTab('pptTab')">PPT</button>
+        <button class="tab-button" onclick="openTab('youtubeTab')">YouTube</button>
+      </div>
+      <div id="tab-content">
+        <div id="pdfTab" class="tab-content"></div>
+        <div id="pptTab" class="tab-content" style="display:none;"></div>
+        <div id="youtubeTab" class="tab-content" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

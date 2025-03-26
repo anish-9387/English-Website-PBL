@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    font-family: 'Varela Round', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #140404;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('bgimage.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(26, 25, 25, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 5;
+    display: none;
+}
+
+header {
+    margin-top: 10px;
+    background: rgba(52, 48, 48, 0.85);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-size: 26px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(144, 143, 143, 0.7), 0 -8px 16px rgba(144, 143, 143, 0.7);
+}
+
+/* Original Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: 425px;
+    margin: auto; /* Center horizontally */
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center vertically */
+}
+
+/* Responsive changes for mobile view */
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        /* let rows adjust automatically */
+        width: 90%;
+        max-width: 500px;
+        /* Optionally, adjust the gap if needed */
+        gap: 10px;
+    }
+}
+
+.grid-item {
+    background: rgba(223, 220, 220, 0.2);
+    color: #dbd9d9;
+    padding: 30px;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3),
+        -5px -5px 15px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s, background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    align-items: center;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.4),
+        -7px -7px 20px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 254, 254, 0.2);
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    display: none; /* Hide the modal by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.grid-item.active + .modal {
+    display: flex; /* Show the modal when the grid item is active */
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 38px;
+    color: #ff2727;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #b81111;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+footer {
+    background: rgba(255, 255, 255, 0.2);
+    color: #e1dfdf;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 8px 16px rgba(144, 143, 143, 0.7), 0 -8px 16px rgba(144, 143, 143, 0.7);
+}
+
+.file-links {
+    margin-top: 20px;
+}
+
+.file-links a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background: #1c1c1c;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s;
+}
+
+.file-links a:hover {
+    background: #333333;
+}
+
+nav {
+    display: flex;
+    flex-direction: row; /* Ensures items are in one row */
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center; /* Aligns items vertically */
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2); /* Glassy translucent effect */
+    backdrop-filter: blur(10px); /* Adds blur effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 -8px 16px rgba(255, 255, 255, 0.1); /* Subtle shadow */
+    margin: 20px auto; /* Center the nav container */
+    width: fit-content; /* Adjust width to fit content */
+}
+
+nav a {
+    color: #e1dfdf;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.3s, background 0.3s;
+    border-radius: 8px; /* Rounded corners for links */
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1); /* Slight background change on hover */
+    color: #df973a; /* Brighten text color on hover */
+}
