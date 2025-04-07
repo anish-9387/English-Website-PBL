@@ -1,0 +1,379 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #140404;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the title */
+    padding: 20px;
+    background: rgba(95, 50, 50, 0.607); /* Semi-transparent background */
+    color: #ffffff; /* Keep the text color white */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a professional look */
+    position: relative; /* Allows positioning of the logo */
+}
+
+/* Logo Styling */
+header .logo {
+    width: 120px; /* Adjust the size of the logo */
+    height: auto;
+    position: absolute;
+    left: 20px; /* Position the logo on the left */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center the logo */
+    cursor: pointer; /* Indicate the logo is clickable */
+}
+
+/* Title Styling */
+header .title {
+    font-size: 50px;
+    font-family: 'Varela Round', sans-serif;
+    color: #ffffff; /* White for high contrast */
+    text-align: center;
+}
+
+/* Responsive Design for Header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack the logo and title vertically */
+        justify-content: center;
+        padding: 15px;
+    }
+
+    header .logo {
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Reset transform */
+        margin-bottom: 10px; /* Add spacing below the logo */
+    }
+
+    header .title {
+        font-size: 28px; /* Reduce the font size for smaller screens */
+    }
+}
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(75, 40, 40, 0.856);
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+nav .nav-button a {
+    text-decoration: none;
+    color: #f0f0f0; /* Light gray for softer contrast */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav .nav-button a:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #140404; /* Dark red text on hover */
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid Items */
+.grid-item {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-align: center;
+    padding: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.grid-item:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .grid-item {
+        padding: 15px; /* Keep the current padding for small screens */
+        font-size: 16px; /* Keep the current font size for small screens */
+        border-radius: 10px; /* Keep the current border radius */
+    }
+}
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        gap: 20px; /* Adjust spacing for smaller screens */
+    }
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+/* Modal Styling */
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #ffffff;
+    color: #333333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff0000;
+}
+
+.close-btn:hover {
+    color: #b30000;
+}
+
+/* Modal Title */
+.modal-content h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333333; /* Dark gray for headings */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #555555; /* Medium gray for subheadings */
+    font-family: 'Arial', sans-serif;
+}
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-content ul li {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #666666; /* Light gray for list items */
+}
+
+/* Resource Links */
+.resources a {
+    display: inline-block;
+    margin: 10px 10px;
+    padding: 10px 20px;
+    background: #140404;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.resources a:hover {
+    background: #ffffff;
+    color: #140404;
+    border: 1px solid #140404;
+}
+
+iframe#youtube-preview {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 315px;
+}
+
+/* Responsive Design for Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%; /* Adjust modal width for smaller screens */
+        padding: 15px;
+    }
+
+    .resources a {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 8px 15px;
+    }
+
+    iframe#youtube-preview {
+        height: 250px; /* Adjust iframe height for smaller screens */
+    }
+}
+
+/* YouTube Preview */
+.modal-content iframe {
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 315px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background: #140404;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tab-button:hover {
+    background-color: #ffffff;
+    color: #140404;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+    }
+
+    header {
+        font-size: 20px;
+    }
+
+    .grid-item {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        font-size: 18px;
+    }
+
+    nav .nav-button a {
+        font-size: 16px;
+    }
+}
+
+/* emabadded viewer look clean and professional */
+.resource-viewer {
+    margin-bottom: 20px;
+  }
+  
+  .resource-viewer h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+
+
+
+

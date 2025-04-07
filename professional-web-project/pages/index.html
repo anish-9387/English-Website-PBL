@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English PBL</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Varela+Round&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="blur-overlay" id="overlay"></div>
+
+  <header>
+    <img src="../assets/images/logo.png" alt="Logo" class="logo">
+    <h1 class="title">English PBL Groups</h1>
+  </header>
+
+  <nav>
+    <div class="nav-button">
+      <h2><a href="index.html" target="_self">Home</a></h2>
+    </div>
+    <div class="nav-button">
+      <h2><a href="about.html" target="_self">About</a></h2>
+    </div>
+    <div class="nav-button">
+      <h2><a href="credits.html" target="_self">Credits</a></h2>
+    </div>
+  </nav>
+
+  <main class="content">
+    <div class="grid-container">
+      <div class="grid-item" onclick="openModal('Group 1', '../assets/files/test.pdf', '../assets/files/sample1.ppt', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">Group 1</div>
+      <div class="grid-item" onclick="openModal('Group 2', 'sample2.pdf', 'sample2.ppt', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">Group 2</div>
+      <div class="grid-item" onclick="openModal('Group 3', 'sample3.pdf', 'sample3.ppt', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">Group 3</div>
+      <div class="grid-item" onclick="openModal('Group 4', 'sample4.pdf', 'sample4.ppt', 'https://www.youtube.com/embed/sample4')">Group 4</div>
+      <div class="grid-item" onclick="openModal('Group 5', 'sample5.pdf', 'sample5.ppt', 'https://www.youtube.com/embed/sample5')">Group 5</div>
+      <div class="grid-item" onclick="openModal('Group 6', 'sample6.pdf', 'sample6.ppt', 'https://www.youtube.com/embed/sample6')">Group 6</div>
+      <div class="grid-item" onclick="openModal('Group 7', 'sample7.pdf', 'sample7.ppt', 'https://www.youtube.com/embed/sample7')">Group 7</div>
+      <div class="grid-item" onclick="openModal('Group 8', 'sample8.pdf', 'sample8.ppt', 'https://www.youtube.com/embed/sample8')">Group 8</div>
+      <div class="grid-item" onclick="openModal('Group 9', 'sample9.pdf', 'sample9.ppt', 'https://www.youtube.com/embed/sample9')">Group 9</div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; X-1 English PBL 2025.</p>
+  </footer>
+
+ <!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <div id="modal-text">
+      <h3>Members:</h3>
+      <ul id="group-members">
+        <!-- Members will be dynamically injected here -->
+      </ul>
+      <h3>Resources:</h3>
+      <div class="resources">
+        <div id="pdf-viewer" class="resource-viewer">
+          <h4>PDF Viewer:</h4>
+          <iframe id="pdf-iframe" width="100%" height="400" frameborder="0"></iframe>
+        </div>
+        <div id="ppt-viewer" class="resource-viewer">
+          <h4>PPT Viewer:</h4>
+          <iframe id="ppt-iframe" width="100%" height="400" frameborder="0"></iframe>
+        </div>
+        <div id="youtube-viewer" class="resource-viewer">
+          <h4>YouTube Preview:</h4>
+          <iframe id="youtube-preview" width="100%" height="315" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
