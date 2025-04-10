@@ -5,10 +5,6 @@
     font-family: Arial, sans-serif;
 }
 
-.title {
-    font-family: 'Varela Round', sans-serif;
-}
-
 html,
 body {
     height: 100%;
@@ -17,6 +13,8 @@ body {
 }
 
 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -38,7 +36,9 @@ body {
     display: none;
 }
 
+/* Header */
 header {
+    background-color: #f2f2f2;
     margin-top: 10px;
     background: rgba(52, 48, 48, 0.85);
     color: #ffffff;
@@ -50,62 +50,90 @@ header {
     box-shadow: 0 8px 16px rgba(144, 143, 143, 0.7), 0 -8px 16px rgba(144, 143, 143, 0.7);
 }
 
-/* Original Grid Container */
+/* Navigation */
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+nav a {
+    color: #e0dede;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.3s, background 0.3s;
+    border-radius: 8px;
+    background: rgba(179, 176, 176, 0.403);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 -8px 16px rgba(255, 255, 255, 0.1);
+    margin: 0 10px;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #df973a;
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Grid Container */
 .grid-container {
+    padding: 20px;
+    box-sizing: border-box;
+    flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 15px;
+    gap: 20px;
     width: 100%;
     max-width: 900px;
     height: 100%;
     max-height: 425px;
-    margin: auto; /* Center horizontally */
+    margin: auto;
     position: absolute;
     top: 55%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center vertically */
+    transform: translate(-50%, -50%);
 }
 
-/* Responsive changes for mobile view */
-@media (max-width: 600px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        /* let rows adjust automatically */
-        width: 90%;
-        max-width: 500px;
-        /* Optionally, adjust the gap if needed */
-        gap: 10px;
-    }
-}
-
+/* Grid Item */
 .grid-item {
+    background-color: #ddd;
     background: rgba(223, 220, 220, 0.2);
     color: #dbd9d9;
-    padding: 30px;
+    padding: 40px;
     text-align: center;
-    font-size: 30px;
+    font-size: 28px;
     cursor: pointer;
-    border-radius: 16px;
+    border-radius: 8px;
     border: 2px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3),
-        -5px -5px 15px rgba(255, 255, 255, 0.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.05);
     transition: transform 0.3s, box-shadow 0.3s, border 0.3s, background 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(5px);
-    align-items: center;
 }
 
+/* Hover state for Grid Items */
 .grid-item:hover {
     transform: translateY(-5px);
-    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.4),
-        -7px -7px 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.4), -7px -7px 20px rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.7);
 }
 
+/* Modal styling */
 .modal {
     position: fixed;
     top: 50%;
@@ -117,9 +145,8 @@ header {
     padding: 20px;
     border-radius: 40px;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
-        inset 0 0 10px rgba(255, 255, 255, 0.1);
-    display: none; /* Hide the modal by default */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -128,14 +155,12 @@ header {
     transition: all 0.3s ease-in-out;
 }
 
-.grid-item.active + .modal {
-    display: flex; /* Show the modal when the grid item is active */
-}
-
+/* Modal content */
 .modal-content {
     text-align: center;
 }
 
+/* Close button for modal */
 .close-btn {
     position: absolute;
     top: 15px;
@@ -145,35 +170,28 @@ header {
     cursor: pointer;
     transition: color 0.3s;
 }
-
 .close-btn:hover {
     color: #b81111;
 }
 
-.content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
+/* Footer */
 footer {
+    background-color: #f2f2f2;
     background: rgba(255, 255, 255, 0.2);
     color: #e1dfdf;
     text-align: center;
-    padding: 15px;
-    margin-top: auto;
-    width: 100%;
+    padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 100%;
     box-shadow: 0 8px 16px rgba(144, 143, 143, 0.7), 0 -8px 16px rgba(144, 143, 143, 0.7);
+    position: relative;
 }
 
+/* File links */
 .file-links {
     margin-top: 20px;
 }
-
 .file-links a {
     display: inline-block;
     margin: 0 10px;
@@ -185,34 +203,66 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: background 0.3s;
 }
-
 .file-links a:hover {
     background: #333333;
 }
 
-nav {
-    display: flex;
-    flex-direction: row; /* Ensures items are in one row */
-    justify-content: center; /* Centers the items horizontally */
-    align-items: center; /* Aligns items vertically */
-    padding: 10px;
-    margin: 20px auto; /* Center the nav container */
-    width: fit-content; /* Adjust width to fit content */
+/* Tablet size (below 800px) */
+@media (max-width: 800px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 15px;
+    }
+
+    header,
+    footer {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    footer{
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .grid-item {
+        font-size: 24px;
+        padding: 30px;
+    }
 }
 
-nav a {
-    color: #e0dede;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: color 0.3s, background 0.3s;
-    border-radius: 8px; /* Rounded corners for links */
-    background: rgba(179, 176, 176, 0.403); /* Glassy translucent effect */
-    backdrop-filter: blur(10px); /* Adds blur effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 -8px 16px rgba(255, 255, 255, 0.1); /* Subtle shadow */
-    margin: 0 10px; /* Add spacing between buttons */
-}
+/* Mobile size (below 400px) */
+@media (max-width: 400px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 10px;
+    }
 
-nav a:hover {
-    background: rgba(255, 255, 255, 0.1); /* Slight background change on hover */
-    color: #df973a; /* Brighten text color on hover */
+    header,
+    footer {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    nav a {
+        margin: 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    footer {
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .grid-item {
+        font-size: 20px;
+        padding: 20px;
+    }
 }
