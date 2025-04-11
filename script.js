@@ -65,35 +65,40 @@ function showContent(teamName, studentNames, logoImage = "", fileLink1 = "", fil
         youtubeTab.innerHTML = "<p>No YouTube video available.</p>";
     }
 
-    // Show the default tab (PDF)
     openTab('pdfTab');
 
-    // Show overlay and modal with fade-in effect
     overlay.style.display = "block";
     overlay.classList.add("active");
 
-    modal.style.display = "flex"; // using flex for centering
+    modal.style.display = "flex";
     modal.classList.add("fade-in");
 }
 
-// Function to switch between tabs
 function openTab(tabName) {
-    const tabs = document.getElementsByClassName("tab-content");
-    for (let tab of tabs) {
-        tab.style.display = "none";
+    const tabContents = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = "none";
     }
+    
+    const tabButtons = document.getElementsByClassName("tab-button");
+    for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove("active");
+    }
+    
     document.getElementById(tabName).style.display = "block";
+    
+    const activeButton = document.querySelector(`button[onclick="openTab('${tabName}')"]`);
+    if (activeButton) {
+        activeButton.classList.add("active");
+    }
 }
 
-// Function to close the modal
 function closeContent() {
     const modal = document.getElementById("modal");
     const overlay = document.getElementById("overlay");
-
+    
     modal.style.display = "none";
     overlay.style.display = "none";
-    overlay.classList.remove("active");
 }
 
-// Close the modal when clicking outside of it
 document.getElementById("overlay").addEventListener("click", closeContent);  
