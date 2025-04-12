@@ -3,12 +3,11 @@
  * PDF, PPT, and YouTube.
  * @param {string} teamName - The name of the team.
  * @param {Array<string>} studentNames - An array of student names.
- * @param {string} logoImage - The URL of the team's logo image.
  * @param {string} fileLink1 - The URL for the PDF file.
  * @param {string} fileLink2 - The URL for the PPT file.
  * @param {string} fileLink3 - The URL for the YouTube video.
 */
-function showContent(teamName, studentNames, logoImage = "", fileLink1 = "", fileLink2 = "", fileLink3 = "") {
+function showContent(teamName, studentNames, fileLink1 = "", fileLink2 = "", fileLink3 = "") {
     const modal = document.getElementById("modal");
     const overlay = document.getElementById("overlay");
     const modalTitle = document.getElementById("modal-title");
@@ -22,7 +21,6 @@ function showContent(teamName, studentNames, logoImage = "", fileLink1 = "", fil
 
     // Update modal content with logo and group details
     modalText.innerHTML = `
-        ${logoImage ? `<img src="${logoImage}" alt="${teamName} Logo" style="max-width: 100px; margin-bottom: 20px;">` : ''}
         <p>Members of ${teamName}:</p>
         <ul>
           ${studentList}
