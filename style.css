@@ -98,9 +98,9 @@ nav a:hover {
     grid-template-rows: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
-    max-width: 900px;
+    max-width: 1100px;
     height: 100%;
-    max-height: 425px;
+    max-height: 500px;
     margin: 20px auto;
 }
 
@@ -146,7 +146,7 @@ nav a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(40, 40, 40, 0.95);
+    background: rgba(38, 27, 27, 0.95);
     width: 90%;
     max-width: 600px; /* Default for mobile/tablets */
     max-height: 90vh;
@@ -218,7 +218,7 @@ nav a:hover {
 
 .tab-button:hover,
 .tab-button.active {
-    background-color: rgba(150, 150, 150, 0.6);
+    background-color: rgba(220, 57, 57, 0.6);
     border-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -254,8 +254,8 @@ nav a:hover {
 /* Close button */
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 12px;
+    top: 0.1px;
+    right: 1px;
     font-size: 28px;
     color: #ff4d4d;
     cursor: pointer;
@@ -265,7 +265,7 @@ nav a:hover {
 }
 
 .close-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 /* Optional: subtle fade-in animation */
