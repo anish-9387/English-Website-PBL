@@ -9,13 +9,13 @@ function showContent(teamName, studentNames, fileLink1 = "", fileLink2 = "", fil
     const modalTitle = document.getElementById("modal-title");
     const modalText = document.getElementById("modal-text");
 
-    // Reset tab contents and active states
+    // Remove any large state from previous content.
+    modal.classList.remove("large");
+
     resetTabs();
 
-    // Set the team name as the modal title.
     modalTitle.innerText = teamName;
 
-    // Build the list of student names dynamically.
     const studentList = studentNames.map(name => `<li>${name}</li>`).join('');
     modalText.innerHTML = `
         <p>Members of ${teamName}:</p>
@@ -24,7 +24,6 @@ function showContent(teamName, studentNames, fileLink1 = "", fileLink2 = "", fil
         </ul>
     `;
 
-    // Set up the tab content containers without loading any content.
     const pdfTab = document.getElementById("pdfTab");
     const pptTab = document.getElementById("pptTab");
     const youtubeTab = document.getElementById("youtubeTab");
@@ -33,12 +32,10 @@ function showContent(teamName, studentNames, fileLink1 = "", fileLink2 = "", fil
     pptTab.innerHTML = "";
     youtubeTab.innerHTML = "";
 
-    // Store file links as data attributes for later use.
     pdfTab.dataset.fileLink = fileLink1;
     pptTab.dataset.fileLink = fileLink2;
     youtubeTab.dataset.fileLink = fileLink3;
 
-    // Display the modal and overlay.
     overlay.style.display = "block";
     overlay.classList.add("active");
 
@@ -46,19 +43,18 @@ function showContent(teamName, studentNames, fileLink1 = "", fileLink2 = "", fil
     modal.classList.add("fade-in");
 }
 
+
 /*
  * Reset tab contents and remove active classes.
  * This ensures that each time a new grid item is clicked,
  * the modal resets to only show the members list and the 3 buttons.
  */
 function resetTabs() {
-    // Hide all tab contents.
     const tabContents = document.getElementsByClassName("tab-content");
     for (let i = 0; i < tabContents.length; i++) {
         tabContents[i].style.display = "none";
-        tabContents[i].innerHTML = ""; // Clear loaded content.
+        tabContents[i].innerHTML = "";
     }
-    // Remove active class from all tab buttons.
     const tabButtons = document.getElementsByClassName("tab-button");
     for (let i = 0; i < tabButtons.length; i++) {
         tabButtons[i].classList.remove("active");
@@ -70,7 +66,7 @@ function resetTabs() {
  * This is only triggered when the corresponding button (REPORT, PPT, or YouTube) is clicked.
  */
 function openTab(tabName) {
-    // First, hide all tab content and remove active state from buttons.
+    // Hide all tab contents and remove active state from buttons.
     const tabContents = document.getElementsByClassName("tab-content");
     for (let i = 0; i < tabContents.length; i++) {
         tabContents[i].style.display = "none";
@@ -81,19 +77,33 @@ function openTab(tabName) {
         tabButtons[i].classList.remove("active");
     }
 
+    // Add the "large" class to the modal for desktop view.
+    const modal = document.getElementById("modal");
+    modal.classList.add("large");
+
     // Load and display content for the selected tab.
     const activeTab = document.getElementById(tabName);
     let fileLink = activeTab.dataset.fileLink;
 
     if (tabName === "pdfTab") {
         if (fileLink) {
-            activeTab.innerHTML = `<iframe src="https://docs.google.com/gview?url=${encodeURIComponent(fileLink)}&embedded=true" frameborder="0" style="width:100%; height:400px;"></iframe>`;
+            let previewLink = fileLink;
+            if (fileLink.includes("drive.google.com")) {
+                // Convert the shared Google Drive link to its preview version.
+                previewLink = fileLink.replace(/\/view.*$/, "/preview");
+            }
+            // Note: Remove any inline height style here.
+            activeTab.innerHTML = `<iframe src="${previewLink}" frameborder="0" style="width:100%;"></iframe>`;
         } else {
-            activeTab.innerHTML = "<p>No report available.</p>";
+            activeTab.innerHTML = "<p>No Report available.</p>";
         }
     } else if (tabName === "pptTab") {
         if (fileLink) {
-            activeTab.innerHTML = `<iframe src="https://docs.google.com/gview?url=${encodeURIComponent(fileLink)}&embedded=true" frameborder="0" style="width:100%; height:400px;"></iframe>`;
+            let previewLink = fileLink;
+            if (fileLink.includes("drive.google.com")) {
+                previewLink = fileLink.replace(/\/view.*$/, "/preview");
+            }
+            activeTab.innerHTML = `<iframe src="${previewLink}" frameborder="0" style="width:100%;"></iframe>`;
         } else {
             activeTab.innerHTML = "<p>No PPT available.</p>";
         }
@@ -106,7 +116,7 @@ function openTab(tabName) {
                 videoId = match[2];
             }
             if (videoId) {
-                activeTab.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" style="width:100%; height:400px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                activeTab.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" style="width:100%;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             } else {
                 activeTab.innerHTML = "<p>Invalid video URL.</p>";
             }
@@ -115,6 +125,7 @@ function openTab(tabName) {
         }
     }
 
+    // Show the active tab content.
     activeTab.style.display = "block";
 
     // Add active class to the clicked button.
