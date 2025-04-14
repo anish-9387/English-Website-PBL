@@ -4,20 +4,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>English PBL</title>
+  <title>English PBL - Credits</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Varela+Round&display=swap"
     rel="stylesheet">
+
+  <!-- Inline Glassy Background Style for Credits -->
+  <style>
+    body {
+      background-color: #140404;
+      color: #ffffff;
+    }
+
+    .credits-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    /* Glassy effect, similar to About page */
+    .glassy {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+
+    .glassy h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .glassy ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .glassy li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .glassy li a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 8px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .glassy {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="blur-overlay" id="overlay"></div>
 
   <header>
-    <h1 class="title">English PBL Groups</h1>
+    <h1 class="title">English PBL</h1>
   </header>
 
   <nav>
@@ -32,66 +96,52 @@
     </div>
   </nav>
 
-<main class="content"></main>
+  <main class="content">
     <div class="credits-container">
-        <!-- Developers Section -->
-        <div class="credits-box glassy">
-            <h2>Developers</h2>
-            <ul>
-                <li>Alice</li>
-                <li>Bob</li>
-                <li>Charlie</li>
-            </ul>
-        </div>
+      <!-- Developers Section -->
+      <div class="credits-box glassy">
+        <h2>Developers</h2>
+        <br>
+        <ul>
+          <li>
+            Anish Mall (RA2411030010288)
+          </li>
+          <li>
+            Ambesh Singh (RA2411030010266)
+          </li>
+        </ul>
+      </div>
 
-        <!-- Editors Section -->
-        <div class="credits-box glassy">
-            <h2>Editors</h2>
-            <ul>
-                <li>David</li>
-                <li>Eve</li>
-                <li>Frank</li>
-            </ul>
-        </div>
+      <!-- Editors Section -->
+      <div class="credits-box glassy">
+        <h2>Editors</h2>
+        <br>
+        <ul>
+          <li>
+            Vivan Sanghvi (RA2411030010267)
+          </li>
+          <li>
+            Dwij Vishwakarma (RA2411030010276)
+          </li>
+        </ul>
+      </div>
 
-        <!-- Faculty Section -->
-        <div class="credits-box glassy">
-            <h2>Faculty</h2>
-            <ul>
-                <li>Prof. Grace</li>
-                <li>Dr. Heidi</li>
-                <li>Mr. Liam</li>
-            </ul>
-        </div>
+      <!-- Faculty Section -->
+      <div class="credits-box glassy">
+        <h2>Faculty</h2>
+        <br>
+        <ul>
+          <li>Dr. Poonam Prasad</li>
+          <li>ASSISTANT PROFESSOR</li>
+          <li>DEPARTMENT OF ENGLISH AND FOREIGN LANGUAGES</li>
+        </ul>
+      </div>
     </div>
-</main>
+  </main>
 
   <footer>
     <p>&copy; X-1 English PBL 2025.</p>
   </footer>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeContent()">&times;</span>
-      <h2 id="modal-title">Group Details</h2>
-      <div id="modal-text">
-        <!-- Group details (logo, members, etc.) will be injected here -->
-      </div>
-
-      <!-- Tabs for PDF, PPT, and YouTube -->
-      <div class="tabs">
-        <button class="tab-button" onclick="openTab('pdfTab')">PDF</button>
-        <button class="tab-button" onclick="openTab('pptTab')">PPT</button>
-        <button class="tab-button" onclick="openTab('youtubeTab')">YouTube</button>
-      </div>
-      <div id="tab-content">
-        <div id="pdfTab" class="tab-content"></div>
-        <div id="pptTab" class="tab-content" style="display:none;"></div>
-        <div id="youtubeTab" class="tab-content" style="display:none;"></div>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>

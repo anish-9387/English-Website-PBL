@@ -4,20 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>English PBL</title>
+  <title>English PBL - About</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Varela+Round&display=swap"
     rel="stylesheet">
+    
 </head>
 
 <body>
   <div class="blur-overlay" id="overlay"></div>
 
   <header>
-    <h1 class="title">English PBL Groups</h1>
+    <h1 class="title">English PBL</h1>
   </header>
 
   <nav>
@@ -32,36 +33,46 @@
     </div>
   </nav>
 
-  <main class="content"></main>
-    
+  <!-- Main content area with a glassy background -->
+  <main class="content">
+    <div class="glass-container">
+      <h2>About This Website</h2>
+      <br>
+      <p>
+        This website has been developed as part of the English Project-Based Learning (PBL) activity conducted for Class X-1 students. The aim of the activity is to enhance students' communication skills, presentation abilities, and collaborative spirit through engaging, hands-on projects.
+      </p>
+
+      <p>
+        Each student was assigned to form a team and worked together on SDGs (Sustainable Development Goals) relevant to their chosen book. As part of the project, teams were asked to research their topics, prepare a report (PDF), design a presentation (PPT), and record an explanatory video.
+      </p>
+
+      <br>
+      <p>
+        To bring all of this together in one place, this website was created using HTML, CSS, and JavaScript. The home page features a responsive grid layout showcasing all teams. When a user clicks on a group, a modal window opens with that team's name, list of members, and three action buttons: <strong>Report</strong>, <strong>PPT</strong>,
+        and <strong>Video</strong>.
+      </p>
+
+      <p>
+        Each of these buttons loads the corresponding resource from the group: the PDF report, the PowerPoint
+        presentation, and the YouTube video link. This ensures that all project material is centralized in one easy-to-navigate interface. The design is responsive for both desktop and mobile views, with a clean user interface and modal system for content viewing.
+      </p>
+
+      <p>
+        The files are hosted on Google Drive and embedded using secure links to ensure smooth viewing without the need for downloading. This makes the platform lightweight, efficient, and easy for teachers and students to use.
+      </p>
+
+      <br>
+      <p>
+        In summary, this site not only showcases the hard work and creativity of all teams involved but also
+        demonstrates how digital platforms can be effectively used for academic collaboration and skill-building.
+      </p>
+    </div>
   </main>
+
 
   <footer>
     <p>&copy; X-1 English PBL 2025.</p>
   </footer>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeContent()">&times;</span>
-      <h2 id="modal-title">Group Details</h2>
-      <div id="modal-text">
-        <!-- Group details (logo, members, etc.) will be injected here -->
-      </div>
-
-      <!-- Tabs for PDF, PPT, and YouTube -->
-      <div class="tabs">
-        <button class="tab-button" onclick="openTab('pdfTab')">PDF</button>
-        <button class="tab-button" onclick="openTab('pptTab')">PPT</button>
-        <button class="tab-button" onclick="openTab('youtubeTab')">YouTube</button>
-      </div>
-      <div id="tab-content">
-        <div id="pdfTab" class="tab-content"></div>
-        <div id="pptTab" class="tab-content" style="display:none;"></div>
-        <div id="youtubeTab" class="tab-content" style="display:none;"></div>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>

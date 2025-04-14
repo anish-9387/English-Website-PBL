@@ -79,88 +79,78 @@ function openTab(tabName) {
 
     const modal = document.getElementById("modal");
     const modalContent = document.querySelector(".modal-content");
-    
+
     modal.classList.add("large");
-    
+
     if (window.innerWidth >= 769 && !document.getElementById("team-info")) {
         const modalTitle = document.getElementById("modal-title");
         const modalText = document.getElementById("modal-text");
         const tabs = document.querySelector(".tabs");
         const tabContent = document.getElementById("tab-content");
-        
+
         const teamInfo = document.createElement("div");
         teamInfo.id = "team-info";
-        
+
         const teamName = modalTitle.textContent;
         const membersHtml = modalText.innerHTML;
-        
+
         teamInfo.innerHTML = `
             <h2>${teamName}</h2>
             <div id="modal-text">
                 ${membersHtml}
             </div>
         `;
-        
+
         const rightPanel = document.createElement("div");
         rightPanel.id = "right-panel";
         rightPanel.style.flex = "1";
         rightPanel.style.display = "flex";
         rightPanel.style.flexDirection = "column";
         rightPanel.style.overflow = "hidden";
-        
+
         const tabsClone = tabs.cloneNode(true);
-        
+
         modalContent.innerHTML = '';
-        
+
         const closeBtn = document.createElement("span");
         closeBtn.className = "close-btn";
         closeBtn.innerHTML = "&times;";
         closeBtn.onclick = closeContent;
         modalContent.appendChild(closeBtn);
-        
+
         modalContent.appendChild(teamInfo);
-        
+
         rightPanel.appendChild(tabsClone);
-        
+
         rightPanel.appendChild(tabContent);
-        
+
         modalContent.appendChild(rightPanel);
     }
 
     const activeTab = document.getElementById(tabName);
     let fileLink = activeTab.dataset.fileLink;
 
-    if (tabName === "pdfTab") {
+    if (tabName === "pdfTab" || tabName === "pptTab") {
         if (fileLink) {
             let previewLink = fileLink;
             if (fileLink.includes("drive.google.com")) {
                 previewLink = fileLink.replace(/\/view.*$/, "/preview");
             }
-            activeTab.innerHTML = `<iframe src="${previewLink}" frameborder="0" style="display:block; width:100%; height:80vh; border:none;"></iframe>`;
+            activeTab.innerHTML = `<iframe src="${previewLink}" frameborder="0" style="display:block; width:100%; height:58vh; border:none;"></iframe>`;
         } else {
-            activeTab.innerHTML = "<p>No Report available.</p>";
-        }
-    } else if (tabName === "pptTab") {
-        if (fileLink) {
-            let previewLink = fileLink;
-            if (fileLink.includes("drive.google.com")) {
-                previewLink = fileLink.replace(/\/view.*$/, "/preview");
-            }
-            activeTab.innerHTML = `<iframe src="${previewLink}" frameborder="0" style="display:block; width:100%; height:80vh; border:none;"></iframe>`;
-        } else {
-            activeTab.innerHTML = "<p>No PPT available.</p>";
+            activeTab.innerHTML = `<p>No ${tabName === "pdfTab" ? "Report" : "PPT"} available.</p>`;
         }
     } else if (tabName === "youtubeTab") {
         if (fileLink) {
             if (fileLink.includes("embed")) {
-                activeTab.innerHTML = `<iframe src="${fileLink}" frameborder="0" style="display:block; width:100%; height:80vh;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                activeTab.innerHTML = `<iframe src="${fileLink}" frameborder="0" style="display:block; width:100%; height:58vh;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             } else {
                 let videoId = "";
                 const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
                 const match = fileLink.match(regExp);
                 if (match && match[2].length === 11) {
                     videoId = match[2];
-                    activeTab.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" style="display:block; width:100%; height:80vh;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                    activeTab.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" style="display:block; width:100%; height:58vh;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
                 } else {
                     activeTab.innerHTML = "<p>Invalid video URL.</p>";
                 }
@@ -176,7 +166,7 @@ function openTab(tabName) {
     if (activeButton) {
         activeButton.classList.add("active");
     }
-    
+
     activeTab.offsetHeight;
 }
 
@@ -186,21 +176,21 @@ function openTab(tabName) {
 function closeContent() {
     const modal = document.getElementById("modal");
     const overlay = document.getElementById("overlay");
-    
+
     const teamInfo = document.getElementById("team-info");
     const title = teamInfo ? teamInfo.querySelector("h2").textContent : document.getElementById("modal-title").textContent;
     const modalText = teamInfo ? teamInfo.querySelector("#modal-text").innerHTML : document.getElementById("modal-text").innerHTML;
-    
+
     const pdfTab = document.getElementById("pdfTab");
     const pptTab = document.getElementById("pptTab");
     const ytTab = document.getElementById("youtubeTab");
-    
+
     const pdfLink = pdfTab.dataset.fileLink;
     const pptLink = pptTab.dataset.fileLink;
     const ytLink = ytTab.dataset.fileLink;
-    
+
     modal.classList.remove("large");
-    
+
     const modalContent = document.querySelector(".modal-content");
     modalContent.innerHTML = `
         <span class="close-btn" onclick="closeContent()">&times;</span>
@@ -217,11 +207,11 @@ function closeContent() {
             <div id="youtubeTab" class="tab-content" style="display:none;"></div>
         </div>
     `;
-    
+
     document.getElementById("pdfTab").dataset.fileLink = pdfLink;
     document.getElementById("pptTab").dataset.fileLink = pptLink;
     document.getElementById("youtubeTab").dataset.fileLink = ytLink;
-    
+
     modal.style.display = "none";
     overlay.style.display = "none";
 }
