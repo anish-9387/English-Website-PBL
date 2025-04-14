@@ -89,19 +89,23 @@ nav a:hover {
     position: relative;
 }
 
-/* Grid Container */
 .grid-container {
-    padding: 20px;
+    padding: 10px;
+    /* reduced padding */
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 20px;
+    gap: 15px;
+    /* reduced gap between items */
     width: 100%;
-    max-width: 1340px;
+    max-width: 900px;
+    /* smaller max-width */
     height: 100%;
-    max-height: 500px;
-    margin: 20px auto;
+    max-height: 400px;
+    /* smaller max-height */
+    margin: 10px auto;
+    /* reduced margin */
 }
 
 /* For desktop view - position absolute */
@@ -119,9 +123,11 @@ nav a:hover {
     background-color: #ddd;
     background: rgba(223, 220, 220, 0.2);
     color: #dbd9d9;
-    padding: 30px;
+    padding: 20px;
+    /* reduced padding */
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
+    /* smaller font-size */
     cursor: pointer;
     border-radius: 8px;
     border: 2px solid rgba(255, 255, 255, 0.4);
@@ -164,23 +170,93 @@ nav a:hover {
 /* Enlarged modal styling on desktop when the large class is present */
 @media (min-width: 769px) {
     .modal.large {
-        width: 80%;
-        max-width: 800px;
-        max-height: 90vh;
-        padding: 40px;
+        max-width: 95vw;
+        width: 95vw;
+        height: 90vh;
     }
-
-    /* When modal is enlarged, make its tab content (and iframes) larger */
-    .modal.large .tab-content iframe {
+    
+    .modal.large .modal-content {
+        display: flex;
         width: 100%;
-        height: 600px;
-        /* Adjust this value as needed */
+        height: 100%;
+        padding: 20px;
+        gap: 20px;
     }
-
-    /* Optionally, if you have any content container inside the modal that holds the iframes, style it too */
-    .modal.large .tab-content {
-        /* Remove any inline height; let the iframe size dictate or use another value */
-        height: auto;
+        
+    .modal.large #team-info {
+        flex: 0 0 300px;
+        max-width: 300px;
+        padding: 15px 20px;
+        background-color: #392727;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05) inset;
+        overflow-y: auto;
+    }
+    
+    .modal.large #team-info h2 {
+        color: #2c3e50;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e74c3c;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .modal.large #team-info #modal-text p {
+        font-size: 1.1rem;
+        color: #34495e;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    
+    .modal.large #team-info #modal-text ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .modal.large #team-info #modal-text li {
+        padding: 8px 5px;
+        margin-bottom: 6px;
+        border-left: 3px solid #3498db;
+        background-color: rgba(35, 34, 34, 0.7);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        border-radius: 0 5px 5px 0;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+    }
+    
+    .modal.large #team-info #modal-text li:hover {
+        background-color: #111010;
+        border-left-color: #e74c3c;
+        transform: translateX(3px);
+    }
+    
+    .modal.large #right-panel .tabs {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #121111;
+    }
+    
+    .modal.large .tab-button {
+        padding: 8px 15px;
+        margin-right: 5px;
+        border: none;
+        background-color: #141415;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    
+    .modal.large .tab-button:hover {
+        background-color: #dfe4ea;
+    }
+    
+    .modal.large .tab-button.active {
+        background-color: #3498db;
+        color: white;
     }
 }
 
